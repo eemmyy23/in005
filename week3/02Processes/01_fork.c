@@ -21,11 +21,11 @@ int main(void) {
     }
 
     if (child_pid == 0) {
-        fprintf(stdout, "I am the XXXXXX : PID=%ld, PPID=%ld, Child PID=%ld\n", (long) getpid(), (long) getppid(), (long) child_pid);
+        fprintf(stdout, "I am the child : PID=%ld, PPID=%ld, Child PID=%ld\n", (long) getpid(), (long) getppid(), (long) child_pid);
         return 0;
 
     } else {
-        fprintf(stdout, "I am the XXXXXX : PID=%ld, PPID=%ld, Child PID=%ld\n", (long) getpid(), (long) getppid(), (long) child_pid);
+        fprintf(stdout, "I am the parent : PID=%ld, PPID=%ld, Child PID=%ld\n", (long) getpid(), (long) getppid(), (long) child_pid);
         wait(NULL);
         return 0;
     }
