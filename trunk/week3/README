@@ -1,0 +1,23 @@
+For each exercise:
+1. Try to understand the source code
+2. Correct it (if needed)
+3. Compile the code and run the program
+
+Tricks:
+- You can compile on your Host "Ubuntu" system
+- You can use the classical text edito to read and modify the code
+
+Attention, these are new exercices:
+- Some examples may be too difficult
+- Some variable names and comments are still in french
+
+If it doesn't work, don't lose too much time on an exercise, and give
+us your feedback!
+
+About pointers
+--------------
+int* ptr; // ptr is a pointer to an int
+*ptr;     // value that ptr points to
+
+int i;
+&i;       // address of i
