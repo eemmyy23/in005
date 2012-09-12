@@ -1,4 +1,6 @@
-/* gcc XXXX.c -o XXXX -lpthread */
+/* gcc XXXX.c -o XXXX -lpthread
+gcc 01_create_join.c -o 01_create_join -lpthread
+*/
 
 #define _XOPEN_SOURCE 500
 #include <pthread.h>
@@ -8,11 +10,12 @@
 #include <string.h>
 #include <unistd.h>
 
-#define XXXXXX
+//XXXXX
+#define NB_THREADS 10
 
-void * fn_thread(void * numero);
+void * fn_thread(void * number);
 
-static int compteur = 0;
+static int counter = 0;
 
 int main(void) {
     pthread_t thread[NB_THREADS];
@@ -26,8 +29,8 @@ int main(void) {
         }
     }
 
-    while (compteur < 40) {
-        fprintf(stdout, "main : compteur = %d\n", compteur);
+    while (counter < 40) {
+        fprintf(stdout, "main : counter = %d\n", counter);
         sleep(1);
     }
 
@@ -39,11 +42,12 @@ int main(void) {
 }
 
 void * fn_thread(void * num) {
-    int numero = (int) num;
-    while (compteur < 40) {
-        usleep(numero * 100000);
-        XXXXXX
-        fprintf(stdout, "Thread %d : compteur = %d\n", numero, compteur);
+    int number = (int) num;
+    while (counter < 40) {
+        usleep(number * 100000);
+        //XXXXXX
+        counter++;
+        fprintf(stdout, "Thread %d : counter = %d\n", number, counter);
     }
     pthread_exit(NULL);
 }

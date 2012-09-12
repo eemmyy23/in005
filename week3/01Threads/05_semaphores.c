@@ -1,3 +1,5 @@
+// gcc 05_semaphores.c -o 05_semaphores -lpthread
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -13,7 +15,8 @@ int main(void) {
     int i;
     pthread_t thread;
 
-    XXXXXX;
+    //XXXXXX;
+    sem_init (&semaphore, 0, 1);
 
     for (i = 0; i < 10; i++) {
         pthread_create(& thread, NULL, routine_thread, (void *) i);
@@ -31,7 +34,8 @@ void * routine_thread(void * numero_thread) {
         sleep(aleatoire(4));
 
         fprintf(stdout, "Thread %d leaves critical section\n", (int) numero_thread);
-        XXXXXX;
+        //XXXXXX;
+        sem_post (&semaphore);
         sleep(aleatoire(4));
     }
     return NULL;
