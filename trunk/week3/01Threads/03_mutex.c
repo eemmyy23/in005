@@ -1,5 +1,6 @@
-/* gcc XXXX.c -o XXXX -lpthread */
-
+/* gcc XXXX.c -o XXXX -lpthread
+gcc 03_mutex.c -o 03_mutex -lpthread
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -15,7 +16,9 @@ int main(void) {
     int i;
     pthread_t thread;
     
-    XXXXXX
+    //XXXXXX
+    pthread_mutex_init (&mutex_stdout, NULL);
+
 
     for (i = 0; i < 10; i++) {
         pthread_create(& thread, NULL, routine_threads, (void*) i);
@@ -37,7 +40,8 @@ static void* routine_threads(void* argument) {
         fprintf(stdout, "Thread %d gained mutex\n", numero);
         sleep(aleatoire(3));
         fprintf(stdout, "Thread %d releases mutex\n", numero);
-        XXXXXX
+        //XXXXXX
+        pthread_mutex_unlock (&mutex_stdout);
     }
     return NULL;
 }
